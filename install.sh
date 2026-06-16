@@ -13,8 +13,8 @@ if [ ! -d "$HOME/.auth" ]; then
         cd "$PARENT_DIR/auth" && ./install.sh
         cd "$PROJECT_DIR"
     else
-        gh repo clone opassoca/auth "$HOME/projects/pdk/auth"
-        cd "$HOME/projects/pdk/auth" && ./install.sh
+        gh repo clone opassoca/auth "$HOME/projects/sync/auth"
+        cd "$HOME/projects/sync/auth" && ./install.sh
         cd "$PROJECT_DIR"
     fi
 fi

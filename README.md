@@ -8,7 +8,7 @@
 ---
 
 ## 🧬 O Que é o Agy3?
-O **Agy3** é um consumidor modular do PDK que executa o motor oficial com isolamento de ambiente.
+O **Agy3** é um consumidor modular do SYNC que executa o motor oficial com isolamento de ambiente.
 
 ## 🔑 Consumo de Identidade
 Busca o email ativo em `~/.auth/google_accounts.json`.
