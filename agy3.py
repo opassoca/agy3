@@ -9,7 +9,7 @@ import argparse
 
 # --- REALITY MAPPING ---
 # O AGY3 deve ler as contas do 'gemini-auth' que é o seu sistema ativo.
-AUTH_DIR = os.path.expanduser("~/.gemini-auth")
+AUTH_DIR = os.path.expanduser("~/.auth")
 ACCOUNTS_FILE = os.path.join(AUTH_DIR, "google_accounts.json")
 GEMINI_DIR = os.path.expanduser("~/.gemini")
 OAUTH_CREDS = os.path.join(GEMINI_DIR, "oauth_creds.json")

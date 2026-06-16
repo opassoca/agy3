@@ -1,49 +1,28 @@
-# AGY3 PROXY
+# AGY3
 ### *Official Engine Bridge & Execution Wrapper*
 
 <div align="center">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=AGY3_PROXY+v0.3.1;READING_MASTER_AUTH...+[OK];ISOLATING_ENVIRONMENT...+[OK];MOTOR_READY" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=AGY3+v0.3.1;1.+Enganando+o+motor+oficial+melhor+que+seu+ex;2.+Tunelando+dados+para+o+além;3.+Isolando+o+ambiente+da+sua+incompetencia;4.+Se+o+Google+descobrir,+voce+nao+me+conhece;5.+Processando+mais+lixo+que+seu+historico;6.+Otimizando+memoria+(coisa+que+voce+nao+tem);7.+Tudo+nos+conformes...+[MENTIRA];8.+O+motor+oficial+pediu+demissao;9.+MOTOR_READY_FOR_ABUSE;10.+Sem+leaks,+so+lag" alt="Typing SVG" />
 </div>
 
 ---
 
-## 🧬 O Que é o AGY3?
-O **AGY3 Proxy** é um consumidor modular do ecossistema. Ele não gerencia contas; ele simplesmente lê a conta ativa definida pelo **Gemini Auth** e executa o motor oficial com isolamento de ambiente e otimização de recursos.
+## 🧬 O Que é o Agy3?
+O **Agy3** é um consumidor modular do PDK que executa o motor oficial com isolamento de ambiente.
 
-## 🚀 Arquitetura de Operação
-
-### 🛡️ Motor Oficial (Original Integrity)
-Utiliza o binário original `/data/data/com.termux/files/usr/bin/gemini`, garantindo estabilidade e compatibilidade total com as atualizações do Google.
-
-### 🔑 Consumo de Identidade (Master Slave)
-O AGY3 é um "escravo" do **Gemini Auth**. Ele busca o email ativo em `~/.gemini-auth/google_accounts.json` antes de cada execução, garantindo que você nunca rode um script na conta errada.
-
-### ⚡ Tunelamento de Ambiente
-*   Remove variáveis de proxy globais que causam conflitos de rede.
-*   Força `GEMINI_CLI_NO_RELAUNCH=true` para estabilidade.
-*   Otimiza Node.js via `NODE_OPTIONS`.
+## 🔑 Consumo de Identidade
+Busca o email ativo em `~/.auth/google_accounts.json`.
 
 ---
 
 ## 🖥️ Comandos
-
-*   **`agy3`**: Executa o agente oficial sob a proteção do proxy.
-*   **`agy3 -stats`**: Exibe métricas de uso da conta ativa no Gemini Auth.
+*   **`agy3`**: Executa o motor oficial.
 
 ---
 
 ## 🛠️ Instalação
-
 ```bash
-gh repo clone opassoca/agy-3-proxy
-cd agy-3-proxy
+gh repo clone opassoca/agy3
+cd agy3
 ./install.sh
 ```
-
----
-
-## 👨‍💻 Créditos & Arquitetura
-
-**Lead Architect:** [Paçoca (@opassoca)](https://github.com/opassoca)
-
-<sub>Otimizado com rigor cirúrgico via **Gemini 3 Flash CLI** · PDK Environment</sub>
