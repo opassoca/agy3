@@ -14,10 +14,10 @@ logging.basicConfig(
     format='%(asctime)s [%(levelname)s] %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
-logger = logging.getLogger("AGY3")
+logger = logging.getLogger("ANTIGRAVITY-BRIDGE")
 
 # --- REALITY MAPPING ---
-AUTH_DIR = os.path.expanduser("~/.auth")
+AUTH_DIR = os.path.expanduser("~/.antigravity-auth")
 ACCOUNTS_FILE = os.path.join(AUTH_DIR, "google_accounts.json")
 GEMINI_DIR = os.path.expanduser("~/.gemini")
 OAUTH_CREDS = os.path.join(GEMINI_DIR, "oauth_creds.json")
@@ -79,13 +79,13 @@ def launch_gemini(args):
         logger.error(f"Erro na execução do motor: {e}")
 
 def main():
-    parser = argparse.ArgumentParser(description="AGY3 Proxy - Official Engine Wrapper")
+    parser = argparse.ArgumentParser(description="ANTIGRAVITY-BRIDGE Proxy - Official Engine Wrapper")
     parser.add_argument("-stats", action="store_true", help="Show account metrics")
     args, unknown = parser.parse_known_args()
     
     if args.stats:
         active = get_active_account()
-        print(f"\n◈ AGY3 PROXY METRICS ◈")
+        print(f"\n◈ ANTIGRAVITY-BRIDGE PROXY METRICS ◈")
         print(f"Active Account: {active}\n")
         # Simulação simples de tabela de cotas (integrar com seu pool real no futuro)
         print("Status: Connected via Native Bridge")
@@ -93,6 +93,6 @@ def main():
 
     launch_gemini(unknown)
 
-# PDK: SYNC AGY3 ENGINE - Carioca Enthusiast Edition
+# PDK: SYNC ANTIGRAVITY-BRIDGE ENGINE - Carioca Enthusiast Edition
 if __name__ == "__main__":
     main()
