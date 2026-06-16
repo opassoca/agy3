@@ -1,5 +1,5 @@
 #!/bin/bash
-# Universal Publisher for Gemini Ecosystem
+# Universal Publisher for Gemini Sync
 set -e
 
 REPO_NAME=$(basename "$(pwd)")
@@ -16,7 +16,7 @@ fi
 # Check if remote exists
 if ! git remote | grep -q "origin"; then
     echo "[*] Creating GitHub repository via 'gh' CLI..."
-    gh repo create "$GITHUB_USER/$REPO_NAME" --public --description "Extreme Gemini Ecosystem Module: $REPO_NAME" --source=. --remote=origin || true
+    gh repo create "$GITHUB_USER/$REPO_NAME" --public --description "Extreme Gemini Sync Module: $REPO_NAME" --source=. --remote=origin || true
 fi
 
 echo "[*] Staging files..."
