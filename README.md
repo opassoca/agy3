@@ -2,7 +2,7 @@
 ### *O Túnel Inteligente para o Motor Oficial Gemini CLI*
 
 <div align="center">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=AGY3_PROXY+v3.0;TUNNELING_OFFICIAL_ENGINE...+[OK];SYNCING_GEMINI_AUTH...+[OK];SYSTEM_READY" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=AGY3_PROXY+v0.3.1;TUNNELING_OFFICIAL_ENGINE...+[OK];SYNCING_GEMINI_AUTH...+[OK];SYSTEM_READY" alt="Typing SVG" />
 </div>
 
 ---
