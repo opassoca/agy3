@@ -6,44 +6,77 @@ import json
 import subprocess
 import shutil
 import argparse
+import logging
+
+# --- CONFIGURATION & LOGGING ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger("AGY3")
 
 # --- REALITY MAPPING ---
-# O AGY3 deve ler as contas do 'gemini-auth' que é o seu sistema ativo.
 AUTH_DIR = os.path.expanduser("~/.auth")
 ACCOUNTS_FILE = os.path.join(AUTH_DIR, "google_accounts.json")
 GEMINI_DIR = os.path.expanduser("~/.gemini")
 OAUTH_CREDS = os.path.join(GEMINI_DIR, "oauth_creds.json")
-REAL_MOTOR = "/data/data/com.termux/files/usr/bin/gemini"
+
+def find_gemini_motor():
+    """Busca dinâmica pelo binário oficial no sistema."""
+    # 1. Tenta o PATH padrão
+    path = shutil.which("gemini")
+    if path:
+        return path
+    
+    # 2. Fallbacks comuns em ambientes Android/Termux
+    fallbacks = [
+        "/data/data/com.termux/files/usr/bin/gemini",
+        "/usr/local/bin/gemini",
+        "/usr/bin/gemini"
+    ]
+    for fb in fallbacks:
+        if os.path.exists(fb) and os.access(fb, os.X_OK):
+            return fb
+    
+    return None
 
 def get_active_account():
-    if os.path.exists(ACCOUNTS_FILE):
-        try:
-            with open(ACCOUNTS_FILE, "r") as f:
-                return json.load(f).get("active")
-        except: pass
-    return "Unknown"
+    if not os.path.exists(ACCOUNTS_FILE):
+        return "Unknown"
+    try:
+        with open(ACCOUNTS_FILE, "r") as f:
+            return json.load(f).get("active", "Unknown")
+    except Exception as e:
+        logger.error(f"Falha ao ler contas: {e}")
+        return "Unknown"
 
 def sync_check():
     """Garante que o motor oficial está usando a conta do switcher."""
     active = get_active_account()
-    if active == "Unknown": return
-    
-    # Verifica se o oauth_creds atual bate com o que deveria estar ativo
-    # No seu setup, o 'auth' já faz o copy, mas o agy3 reforça a sanidade.
-    print(f"[*] AGY3 Engine: Official motor linked to {active}")
+    if active != "Unknown":
+        logger.info(f"Official motor linked to {active}")
 
 def launch_gemini(args):
+    motor_path = find_gemini_motor()
+    if not motor_path:
+        logger.critical("Motor oficial 'gemini' não encontrado no PATH ou locais conhecidos.")
+        logger.info("Instale via: npm install -g @google/gemini-cli")
+        sys.exit(1)
+
     sync_check()
     
     env = os.environ.copy()
     env["GEMINI_CLI_NO_RELAUNCH"] = "true"
     env["NODE_OPTIONS"] = "--max-old-space-size=4096"
     
-    cmd = [REAL_MOTOR] + args
+    cmd = [motor_path] + args
     try:
         subprocess.run(cmd, env=env)
     except KeyboardInterrupt:
         pass
+    except Exception as e:
+        logger.error(f"Erro na execução do motor: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description="AGY3 Proxy - Official Engine Wrapper")
