@@ -1,4 +1,4 @@
-# 🪐 AGY3 PROXY - Neural Bridge 🪐
+# 🪐 AGY3 PROXY 🪐
 ### *O Túnel Inteligente para o Motor Oficial Gemini CLI*
 
 <div align="center">
@@ -8,7 +8,7 @@
 ---
 
 ## 🧬 O Que é o AGY3?
-O **AGY3 Proxy** é a ponte neural que permite usar o **Motor Oficial do Gemini CLI** sob o isolamento e a inteligência do ecossistema Paçoca. Ele atua como um wrapper cirúrgico que intercepta as chamadas, gerencia identidades via **Gemini-Auth** e garante que a CLI oficial rode sem "leaks" de ambiente ou conflitos de rede.
+O **AGY3 Proxy** é a ponte que permite usar o **Motor Oficial do Gemini CLI** sob o isolamento e a inteligência do ecossistema Paçoca. Ele atua como um wrapper cirúrgico que intercepta as chamadas, gerencia identidades via **Gemini-Auth** e garante que a CLI oficial rode sem "leaks" de ambiente ou conflitos de rede.
 
 ## 🚀 Arquitetura de Operação
 
