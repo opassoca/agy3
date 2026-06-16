@@ -1,48 +1,40 @@
-# 🪐 AGY3 PROXY 🪐
-### *O Túnel Inteligente para o Motor Oficial Gemini CLI*
+# AGY3 PROXY
+### *Official Engine Bridge & Execution Wrapper*
 
 <div align="center">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=AGY3_PROXY+v0.3.1;TUNNELING_OFFICIAL_ENGINE...+[OK];SYNCING_GEMINI_AUTH...+[OK];SYSTEM_READY" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=AGY3_PROXY+v0.3.1;READING_MASTER_AUTH...+[OK];ISOLATING_ENVIRONMENT...+[OK];MOTOR_READY" alt="Typing SVG" />
 </div>
 
 ---
 
 ## 🧬 O Que é o AGY3?
-O **AGY3 Proxy** é a ponte que permite usar o **Motor Oficial do Gemini CLI** sob o isolamento e a inteligência do ecossistema Paçoca. Ele atua como um wrapper cirúrgico que intercepta as chamadas, gerencia identidades via **Gemini-Auth** e garante que a CLI oficial rode sem "leaks" de ambiente ou conflitos de rede.
+O **AGY3 Proxy** é um consumidor modular do ecossistema. Ele não gerencia contas; ele simplesmente lê a conta ativa definida pelo **Gemini Auth** e executa o motor oficial com isolamento de ambiente e otimização de recursos.
 
 ## 🚀 Arquitetura de Operação
 
 ### 🛡️ Motor Oficial (Original Integrity)
-Diferente de forks modificados, o AGY3 utiliza o binário oficial `/data/data/com.termux/files/usr/bin/gemini`. Isso garante 100% de compatibilidade com as atualizações do Google enquanto mantemos o controle total do ambiente.
+Utiliza o binário original `/data/data/com.termux/files/usr/bin/gemini`, garantindo estabilidade e compatibilidade total com as atualizações do Google.
 
-### 🔑 Integração Gemini-Auth
-O proxy sincroniza automaticamente as identidades em tempo real:
-*   **Source:** `~/.gemini/oauth_creds.json`
-*   **Registry:** Pool de tokens em `~/.gemini-auth/id-tokens/`
-*   **Orchestration:** Sincronização bidirecional via `sync.py`.
+### 🔑 Consumo de Identidade (Master Slave)
+O AGY3 é um "escravo" do **Gemini Auth**. Ele busca o email ativo em `~/.gemini-auth/google_accounts.json` antes de cada execução, garantindo que você nunca rode um script na conta errada.
 
-### ⚡ Tunelamento e Isolamento
-*   Remove variáveis globais redundantes que causam erros de TLS.
-*   Configura `GEMINI_CLI_NO_RELAUNCH=true` para evitar loops de execução.
-*   Otimiza a memória do Node.js (`max-old-space-size=4096`).
+### ⚡ Tunelamento de Ambiente
+*   Remove variáveis de proxy globais que causam conflitos de rede.
+*   Força `GEMINI_CLI_NO_RELAUNCH=true` para estabilidade.
+*   Otimiza Node.js via `NODE_OPTIONS`.
 
 ---
 
-## 🖥️ Comandos do Ecossistema
+## 🖥️ Comandos
 
-*   **`agy`**: O binário nativo (ELF aarch64) otimizado para despacho rápido.
-*   **`agy3`**: O wrapper Python para gestão avançada de cotas e seleção de modelos.
-*   **`auth`**: Painel TUI (Terminal User Interface) para alternância instantânea de contas.
-*   **`oauth`**: Daemon de sincronização de tokens em background.
+*   **`agy3`**: Executa o agente oficial sob a proteção do proxy.
+*   **`agy3 -stats`**: Exibe métricas de uso da conta ativa no Gemini Auth.
 
 ---
 
 ## 🛠️ Instalação
 
-O AGY3 faz parte do **Ecosystem PDK**. Para instalar ou atualizar:
-
 ```bash
-# Clone e instale via wrapper oficial
 gh repo clone opassoca/agy-3-proxy
 cd agy-3-proxy
 ./install.sh
@@ -53,7 +45,5 @@ cd agy-3-proxy
 ## 👨‍💻 Créditos & Arquitetura
 
 **Lead Architect:** [Paçoca (@opassoca)](https://github.com/opassoca)
-
-> *"Surgicality is not just an option, it is the only way to maintain the integrity of the machine."*
 
 <sub>Otimizado com rigor cirúrgico via **Gemini 3 Flash CLI** · PDK Environment</sub>
